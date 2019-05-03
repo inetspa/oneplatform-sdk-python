@@ -57,7 +57,7 @@ class OneIDApi(object):
             "code": authorize_code,
             "scope": "",
         }
-        response = self._post("/api/token", data=data)
+        response = self._post("/oauth/token", data=data)
         self.__check_error(response)
         return response.json()
 
@@ -68,6 +68,14 @@ class OneIDApi(object):
         response = self._get("/api/account", headers=headers)
         self.__check_error(response)
         return response.json()
+
+    def get_login_link(self):
+        return '{}/api/oauth/getcode?client_id={}&response_type={}&scope={}'.format(
+            self.endpoint,
+            self.client_id,
+            "code",
+            ""
+        )
 
     def _get(self, path, headers=None, timeout=None):
         url = self.endpoint + path
@@ -98,20 +106,12 @@ class OneIDApi(object):
         self.__check_error(response)
         return response
 
-    def _get_login_link(self):
-        return '{}/api/oauth/getcode?client_id={}&response_type={}&scope={}'.format(
-            self.endpoint,
-            self.client_id,
-            "code",
-            ""
-        )
-
     @staticmethod
     def __check_error(response):
         if 200 <= response.status_code < 300:
             pass
         else:
-            raise Exception("error: %d".format(response.status_code))
+            raise Exception("error({}): {}".format(response.status_code, response.json()["errorMessage"]))
 
     @staticmethod
     def _set_authorize_header(access_token):
