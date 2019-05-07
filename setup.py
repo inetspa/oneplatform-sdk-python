@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 
 def _long_description():
@@ -25,6 +25,5 @@ setup(
     ],
     install_requires=[
         "requests",
-        "urllib3"
     ],
 )
