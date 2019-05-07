@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup
-__version__ = '0.1.1'
+__version__ = '0.1.3'
 
 
 def _long_description():
@@ -21,7 +21,8 @@ setup(
     long_description=_long_description(),
     license='GNU GPL 3.0',
     packages=[
-        "oneplatform"
+        "oneplatform",
+        "oneplatform.oneid"
     ],
     install_requires=[
         "requests",
