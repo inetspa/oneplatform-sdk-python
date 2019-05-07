@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 import requests
 from .__about__ import __version__
-import urllib3
-urllib3.disable_warnings()
 
 
 class OneIDApi(object):
