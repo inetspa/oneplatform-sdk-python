@@ -11,7 +11,7 @@ Python SDK สำหรับ API OnePlatform
 -------------------------
 
 See the official API documentation for more information.
-ติดตามคู่มือการใช้งาน Official API และข้อมูลอื่นๆ ได้ที่ https://api.one.th
+ติดตามคู่มือการใช้งาน Official API และข้อมูลอื่นๆ ได้ที่ https://api.one.th/docs
 
 การติดตั้ง
 ----------
@@ -29,14 +29,10 @@ Usage:
 
     from oneplatform.oneid import OneIDApi
 
-    client_id = "_YOUR_CLIENT_ID_"
-    client_secret = "_YOUR_CLIENT_SECRET_"
-    ref_code = "_YOUR_REF_CODE_"
-
     one_id_api = OneIDApi(
-        client_id=client_id,
-        client_secret=client_secret,
-        ref_code=ref_code
+        client_id="_YOUR_CLIENT_ID_",
+        client_secret="_YOUR_CLIENT_SECRET_",
+        ref_code="_YOUR_REF_CODE_"
     )
 
     try:
@@ -190,14 +186,14 @@ get\_profile(self, access\_token)
         "mobile": [
             {
                 "id": "277d6e20-6cbf-11e9-babc-15a0f81e7cb5",
-                "mobile_no": "0875893957",
+                "mobile_no": "_MOBILE_NUMBER_",
                 "created_at": "2019-05-02 16:46:26",
                 "created_by": "OPENID_USR",
                 "updated_at": "2019-05-02 16:46:26",
                 "updated_by": "OPENID_USR",
                 "deleted_at": null,
                 "pivot": {
-                    "account_id": "99634584704",
+                    "account_id": "_ACCOUNT_ID_",
                     "mobile_id": "277d6e20-6cbf-11e9-babc-15a0f81e7cb5",
                     "created_at": "2019-05-02 16:46:26",
                     "updated_at": "2019-05-02 16:46:26",
@@ -276,6 +272,14 @@ First install for development.
 
 Changelog
 =========
+
+Version 0.1.1 (2019-05-07)
+--------------------------
+
+* Fixed One ID version with main lib
+* Clear .idea folder
+* Fix http client for support python v2.7 and v3.7
+* Fixed incorrect readme
 
 Version 0.1.0 (2019-05-03)
 ---------------------------
